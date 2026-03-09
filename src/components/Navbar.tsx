@@ -45,7 +45,7 @@ const Navbar = memo(({ isDark, toggleTheme }: NavbarProps) => {
             />
           </div>
           <span className="text-xl font-bold tracking-tighter text-brand-gold uppercase hidden sm:block">
-            Daham Ceylon Spice
+            Daham Ceylon <span className="text-white">Spice</span>
           </span>
         </Link>
 

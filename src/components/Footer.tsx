@@ -7,12 +7,17 @@ const Footer = memo(() => (
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-2 mb-8">
-            <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center">
-              <Leaf className="text-brand-dark w-6 h-6" />
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-12 w-auto flex items-center justify-center">
+              <img 
+                src="https://yqdppggiipjbpowzrhok.supabase.co/storage/v1/object/sign/Logo/WhatsApp_Image_2569-03-05_at_19.14.25-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNmE4YjRlNC1jMTY2LTQwMGEtYTI4Mi1mYWY0YjY3OGE1YTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMb2dvL1doYXRzQXBwX0ltYWdlXzI1NjktMDMtMDVfYXRfMTkuMTQuMjUtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NzI5OTMwNDAsImV4cCI6MTgwNDUyOTA0MH0.8ZPHZShHp45DGGR8Btb5g-fS3M5Ktp2f7O3EFDtyh8Y" 
+                alt="Daham Ceylon Spice Logo" 
+                className="h-full w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <span className="text-2xl font-bold tracking-tighter text-brand-gold uppercase">
-              Daham Ceylon <span className="text-brand-dark dark:text-white">Spice</span>
+              Daham Ceylon <span className="text-white">Spice</span>
             </span>
           </div>
           <p className="text-muted dark:text-white/50 max-w-md mb-8 leading-relaxed">
