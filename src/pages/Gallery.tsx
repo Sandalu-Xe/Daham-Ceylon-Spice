@@ -3,6 +3,21 @@ import { motion } from 'motion/react';
 import { Loader2, Image as ImageIcon } from 'lucide-react';
 import { fetchImages, ImageItem } from '../services/imageService';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
 const Gallery = () => {
   const [images, setImages] = useState<ImageItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,13 +74,16 @@ const Gallery = () => {
             <p className="text-red-400">{error}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {images.map((image, index) => (
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {images.map((image) => (
               <motion.div
                 key={image.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
+                variants={itemVariants}
                 className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 aspect-[4/3]"
               >
                 <img 
@@ -87,7 +105,7 @@ const Gallery = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {images.length === 0 && !loading && !error && (

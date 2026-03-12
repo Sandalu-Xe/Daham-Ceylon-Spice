@@ -9,17 +9,19 @@ interface ProductCardProps {
   description: string;
 }
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
+
 const ProductCard = memo(({ title, image, tag, description }: ProductCardProps) => (
   <motion.div 
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
+    variants={itemVariants}
     className="group"
   >
-    <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-brand-dark/5">
+    <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-brand-dark/5 rounded-lg">
       <div className="absolute top-4 right-4 z-10">
-        <span className="px-3 py-1 bg-brand-gold text-brand-dark text-[9px] font-bold uppercase tracking-widest rounded-sm">
+        <span className="px-3 py-1 bg-brand-gold text-brand-dark text-[9px] font-bold uppercase tracking-widest rounded-sm shadow-md">
           {tag}
         </span>
       </div>
@@ -41,7 +43,7 @@ const ProductCard = memo(({ title, image, tag, description }: ProductCardProps) 
         href={`https://wa.me/yournumber?text=Inquiry about ${title}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full py-3 bg-brand-gold text-brand-dark text-[10px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-brand-mustard transition-colors"
+        className="w-full py-3 bg-brand-gold text-brand-dark text-[10px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-brand-mustard transition-colors rounded-md shadow-sm hover:shadow-md"
       >
         <MessageSquare size={14} /> Whatsapp for Quote
       </a>
@@ -51,6 +53,16 @@ const ProductCard = memo(({ title, image, tag, description }: ProductCardProps) 
     </div>
   </motion.div>
 ));
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
 
 const Collection = memo(() => {
   const products = [
@@ -83,16 +95,27 @@ const Collection = memo(() => {
   return (
     <main className="py-32 px-6 bg-brand-cream/50 dark:bg-brand-dark/20 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
           <div>
             <h2 className="text-4xl md:text-6xl font-serif mb-4">Our Signature Collection</h2>
             <p className="text-muted max-w-xl">
               Curated organic spices processed with traditional methods and modern precision.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {products.map((p, i) => (
             <ProductCard 
               key={i} 
@@ -102,7 +125,7 @@ const Collection = memo(() => {
               description={p.description}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </main>
   );

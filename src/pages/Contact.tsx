@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { motion } from 'motion/react';
 import { Mail, Phone } from 'lucide-react';
 
 const Contact = memo(() => (
@@ -14,7 +15,12 @@ const Contact = memo(() => (
     </div>
     <div className="max-w-7xl mx-auto relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h2 className="text-4xl md:text-7xl font-serif mb-8 leading-tight">
             Partner with the Soul of Ceylon
           </h2>
@@ -22,22 +28,34 @@ const Contact = memo(() => (
             For global B2B partnerships and bulk export inquiries, please provide your details and our export relations team will reach out within 24 hours.
           </p>
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-4">
+            <motion.div 
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
                 <Mail className="text-brand-gold w-5 h-5" />
               </div>
               <span className="text-sm font-bold uppercase tracking-widest">EXPORTS@DAHAMCEYLON.COM</span>
-            </div>
-            <div className="flex items-center gap-4">
+            </motion.div>
+            <motion.div 
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
                 <Phone className="text-brand-gold w-5 h-5" />
               </div>
               <span className="text-sm font-bold uppercase tracking-widest">JOIN OUR WHATSAPP CHANNEL</span>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-brand-dark/5 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 dark:border-white/10 rounded-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="bg-brand-dark/5 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 dark:border-white/10 rounded-xl shadow-2xl"
+        >
           <h3 className="text-2xl font-serif mb-8">Inquiries</h3>
           <form className="space-y-6">
             <div>
@@ -56,11 +74,15 @@ const Contact = memo(() => (
                 required
               />
             </div>
-            <button className="w-full py-4 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all">
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full py-4 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all rounded-md"
+            >
               Submit Export Request
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   </main>

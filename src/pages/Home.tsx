@@ -7,6 +7,22 @@ const Hero = memo(() => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div 
@@ -14,7 +30,10 @@ const Hero = memo(() => {
         className="absolute inset-0 z-0"
       >
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <img 
+        <motion.img 
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1920" 
           alt="Premium Ceylon Spices"
           className="w-full h-full object-cover"
@@ -25,27 +44,27 @@ const Hero = memo(() => {
 
       <div className="relative z-20 text-center px-6 max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <span className="inline-block px-4 py-1 bg-brand-gold/20 border border-brand-gold/30 text-brand-gold text-[10px] font-bold uppercase tracking-[0.3em] mb-6 rounded-full">
+          <motion.span variants={itemVariants} className="inline-block px-4 py-1 bg-brand-gold/20 border border-brand-gold/30 text-brand-gold text-[10px] font-bold uppercase tracking-[0.3em] mb-6 rounded-full">
             Established 2026
-          </span>
-          <h1 className="text-5xl md:text-8xl font-serif text-white leading-tight mb-8">
+          </motion.span>
+          <motion.h1 variants={itemVariants} className="text-5xl md:text-8xl font-serif text-white leading-tight mb-8">
             The Purest <span className="italic text-brand-gold">Ceylon Soul</span> <br /> in Every Grain.
-          </h1>
-          <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          </motion.h1>
+          <motion.p variants={itemVariants} className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Directly sourced from the heart of Sri Lankan hills. We deliver premium grade, ethically grown spices to the global market with unmatched purity standards.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          </motion.p>
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/collection" className="w-full sm:w-auto px-10 py-4 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all transform hover:scale-105 flex items-center justify-center gap-2">
               Explore Collection <ArrowRight size={18} />
             </Link>
             <Link to="/contact" className="w-full sm:w-auto px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold uppercase tracking-widest hover:bg-white/20 transition-all flex items-center justify-center">
               Bulk Quote (B2B)
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -87,20 +106,26 @@ const Features = memo(() => {
   return (
     <section className="py-24 px-6 bg-brand-cream dark:bg-brand-dark/40">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-6xl font-serif mb-4">Why Choose us?</h2>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {features.map((f, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
               className="text-center group"
             >
-              <div className="mb-6 flex justify-center transform group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-6 flex justify-center transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300">
                 {f.icon}
               </div>
               <h3 className="text-xl font-serif mb-4">{f.title}</h3>
@@ -126,7 +151,12 @@ const CTA = memo(() => (
     </div>
     <div className="max-w-7xl mx-auto relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h2 className="text-4xl md:text-7xl font-serif mb-8 leading-tight">
             Partner with the Soul of Ceylon
           </h2>
@@ -134,22 +164,34 @@ const CTA = memo(() => (
             For global B2B partnerships and bulk export inquiries, please provide your details and our export relations team will reach out within 24 hours.
           </p>
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-4">
+            <motion.div 
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
                 <Mail className="text-brand-gold w-5 h-5" />
               </div>
               <span className="text-sm font-bold uppercase tracking-widest">EXPORTS@DAHAMCEYLON.COM</span>
-            </div>
-            <div className="flex items-center gap-4">
+            </motion.div>
+            <motion.div 
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
                 <Phone className="text-brand-gold w-5 h-5" />
               </div>
               <span className="text-sm font-bold uppercase tracking-widest">JOIN OUR WHATSAPP CHANNEL</span>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-brand-dark/5 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 dark:border-white/10 rounded-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="bg-brand-dark/5 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 dark:border-white/10 rounded-xl shadow-2xl"
+        >
           <h3 className="text-2xl font-serif mb-8">Inquiries</h3>
           <form className="space-y-6">
             <div>
@@ -168,11 +210,15 @@ const CTA = memo(() => (
                 required
               />
             </div>
-            <button className="w-full py-4 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all">
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full py-4 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all rounded-md"
+            >
               Submit Export Request
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   </section>
