@@ -164,7 +164,8 @@ const CTA = memo(() => (
             For global B2B partnerships and bulk export inquiries, please provide your details and our export relations team will reach out within 24 hours.
           </p>
           <div className="flex flex-col gap-6">
-            <motion.div 
+            <motion.a 
+              href="mailto:dahamceylonspice@gmail.com"
               whileHover={{ x: 10 }}
               className="flex items-center gap-4 cursor-pointer"
             >
@@ -172,7 +173,7 @@ const CTA = memo(() => (
                 <Mail className="text-brand-gold w-5 h-5" />
               </div>
               <span className="text-sm font-bold uppercase tracking-widest break-all">dahamceylonspice@gmail.com</span>
-            </motion.div>
+            </motion.a>
             <motion.a 
               href="https://wa.me/64223104144"
               target="_blank"
@@ -185,7 +186,10 @@ const CTA = memo(() => (
               </div>
               <span className="text-sm font-bold uppercase tracking-widest">JOIN OUR WHATSAPP CHANNEL</span>
             </motion.a>
-            <motion.div 
+            <motion.a 
+              href="https://www.google.com/maps/search/?api=1&query=24A,+Totara+View,+Wellsford,+0900,+Auckland,+New+Zealand"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ x: 10 }}
               className="flex items-center gap-4 cursor-pointer"
             >
@@ -193,7 +197,7 @@ const CTA = memo(() => (
                 <MapPin className="text-brand-gold w-5 h-5" />
               </div>
               <span className="text-sm font-bold uppercase tracking-widest leading-relaxed">24A, Totara View, Wellsford, 0900, Auckland, New Zealand</span>
-            </motion.div>
+            </motion.a>
           </div>
         </motion.div>
 
