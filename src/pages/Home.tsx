@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight, Award, MessageSquare, Truck, ShoppingBag, Mail, Phone, MapPin } from 'lucide-react';
+import ProductCard from '../components/ProductCard';
 
 const Hero = memo(() => {
   const { scrollY } = useScroll();
@@ -136,7 +137,7 @@ const Features = memo(() => {
 });
 
 const CTA = memo(() => (
-  <section className="py-24 px-6 bg-brand-cream dark:bg-brand-dark text-brand-dark dark:text-white relative overflow-hidden">
+  <section className="py-24 px-6 bg-brand-cream text-brand-dark relative overflow-hidden">
     <div className="absolute inset-0 opacity-10">
       <img 
         src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&q=80&w=1920" 
@@ -157,7 +158,7 @@ const CTA = memo(() => (
           <h2 className="text-4xl md:text-7xl font-serif mb-8 leading-tight">
             Partner with the Soul of Ceylon
           </h2>
-          <p className="text-muted dark:text-white/60 text-lg mb-10 max-w-lg">
+          <p className="text-muted text-lg mb-10 max-w-lg">
             For global B2B partnerships and bulk export inquiries, please provide your details and our export relations team will reach out within 24 hours.
           </p>
           <div className="flex flex-col gap-6">
@@ -203,7 +204,7 @@ const CTA = memo(() => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="bg-brand-dark/5 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 dark:border-white/10 rounded-xl shadow-2xl"
+          className="bg-brand-dark/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 rounded-xl shadow-2xl"
         >
           <h3 className="text-2xl font-serif mb-8">Inquiries</h3>
           <form className="space-y-6">
@@ -211,7 +212,7 @@ const CTA = memo(() => (
               <input 
                 type="email" 
                 placeholder="Your Email Address" 
-                className="w-full bg-transparent border-b border-brand-dark/20 dark:border-white/20 py-3 text-brand-dark dark:text-white focus:border-brand-gold outline-none transition-colors"
+                className="w-full bg-transparent border-b border-brand-dark/20 py-3 text-brand-dark focus:border-brand-gold outline-none transition-colors"
                 required
               />
             </div>
@@ -219,7 +220,7 @@ const CTA = memo(() => (
               <textarea 
                 placeholder="Tell us about your requirements" 
                 rows={4}
-                className="w-full bg-transparent border-b border-brand-dark/20 dark:border-white/20 py-3 text-brand-dark dark:text-white focus:border-brand-gold outline-none transition-colors"
+                className="w-full bg-transparent border-b border-brand-dark/20 py-3 text-brand-dark focus:border-brand-gold outline-none transition-colors"
                 required
               />
             </div>
@@ -237,10 +238,92 @@ const CTA = memo(() => (
   </section>
 ));
 
+const FeaturedProducts = memo(() => {
+  const products = [
+    {
+      title: "Chilli Powder",
+      tag: "Organic Certified",
+      image: "https://images.unsplash.com/photo-1588165171080-c89acfa5ee83?",
+      description: "Fine vibrant red powder sourced from the central province, sun-dried and cold-ground to preserve essential oils."
+    },
+    {
+      title: "Chilli Pieces",
+      tag: "Premium Grade",
+      image: "https://images.unsplash.com/photo-1599148400620-8e1ff0bf28d8?",
+      description: "Coarsely crushed sun-dried chillies from Matale. Balanced heat with exceptional texture for culinary exports."
+    },
+    {
+      title: "Curry Powder",
+      tag: "Heritage Blend",
+      image: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?",
+      description: "A complex heritage blend of 12 hand-selected spices, slow-roasted to a deep aromatic profile."
+    },
+    {
+      title: "Turmeric Powder",
+      tag: "High Curcumin",
+      image: "https://images.unsplash.com/photo-1615485290382-441e4d019cb5?",
+      description: "Bright golden-yellow powder with high curcumin content, traditionally processed for pure potency."
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  return (
+    <section className="py-24 px-6 bg-brand-cream/50 dark:bg-brand-dark/20">
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
+          <div>
+            <h2 className="text-4xl md:text-6xl font-serif mb-4">Featured Collection</h2>
+            <p className="text-muted max-w-xl">
+              A glimpse into our premium spice range, crafted for global culinary excellence.
+            </p>
+          </div>
+          <Link to="/collection" className="inline-flex items-center gap-2 text-brand-gold font-bold uppercase tracking-widest hover:text-brand-mustard transition-colors">
+            View All Products <ArrowRight size={18} />
+          </Link>
+        </motion.div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {products.map((p, i) => (
+            <ProductCard 
+              key={i} 
+              title={p.title}
+              image={p.image}
+              tag={p.tag}
+              description={p.description}
+            />
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+});
+
 const Home = () => {
   return (
     <main>
       <Hero />
+      <FeaturedProducts />
       <Features />
       <CTA />
     </main>
