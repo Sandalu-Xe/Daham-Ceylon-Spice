@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { MessageSquare } from 'lucide-react';
 
@@ -47,9 +48,12 @@ const ProductCard = memo(({ title, image, tag, description }: ProductCardProps) 
       >
         <MessageSquare size={14} /> Whatsapp for Quote
       </a>
-      <button className="text-[10px] font-bold uppercase tracking-widest text-muted hover:text-brand-gold transition-colors text-center">
+      <Link 
+        to="/contact"
+        className="text-[10px] font-bold uppercase tracking-widest text-muted hover:text-brand-gold transition-colors text-center block"
+      >
         Inquire for Bulk
-      </button>
+      </Link>
     </div>
   </motion.div>
 ));

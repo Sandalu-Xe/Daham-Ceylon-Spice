@@ -70,9 +70,12 @@ const Navbar = memo(({ isDark, toggleTheme }: NavbarProps) => {
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-          <button className="hidden sm:block px-6 py-2 bg-brand-gold text-brand-dark text-xs font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all transform hover:scale-105">
+          <Link 
+            to="/contact"
+            className="hidden sm:block px-6 py-2 bg-brand-gold text-brand-dark text-xs font-bold uppercase tracking-widest hover:bg-brand-mustard transition-all transform hover:scale-105 text-center"
+          >
             Inquire
-          </button>
+          </Link>
           <button 
             className="md:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -104,9 +107,13 @@ const Navbar = memo(({ isDark, toggleTheme }: NavbarProps) => {
                 {link.name}
               </Link>
             ))}
-            <button className="w-full py-3 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest">
+            <Link 
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 bg-brand-gold text-brand-dark font-bold uppercase tracking-widest text-center block"
+            >
               Inquire Now
-            </button>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
