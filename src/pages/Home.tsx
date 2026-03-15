@@ -211,8 +211,9 @@ const CTA = memo(() => (
             className="space-y-6"
             onSubmit={(e) => {
               e.preventDefault();
-              const email = (e.target as any).elements[0].value;
-              const message = (e.target as any).elements[1].value;
+              const form = e.target as HTMLFormElement;
+              const email = (form.elements[0] as HTMLInputElement).value;
+              const message = (form.elements[1] as HTMLTextAreaElement).value;
               window.location.href = `mailto:dahamceylonspice@gmail.com?subject=Export Inquiry from ${email}&body=${encodeURIComponent(message)}`;
             }}
           >

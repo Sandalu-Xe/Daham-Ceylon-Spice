@@ -9,6 +9,8 @@ const Home = lazy(() => import('../pages/Home'));
 const About = lazy(() => import('../pages/About'));
 const Collection = lazy(() => import('../pages/Collection'));
 const Contact = lazy(() => import('../pages/Contact'));
+const Gallery = lazy(() => import('../pages/Gallery'));
+const Certification = lazy(() => import('../pages/Certification'));
 
 const PageLoader = () => (
   <div className="h-screen w-full flex items-center justify-center bg-brand-dark">
@@ -22,10 +24,13 @@ const AnimatedRoutes = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <AnimatePresence mode="wait">
+        {/* @ts-expect-error - React 19 types issue with react-router-dom Routes key prop */}
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/collection" element={<PageWrapper><Collection /></PageWrapper>} />
+          <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
+          <Route path="/certification" element={<PageWrapper><Certification /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         </Routes>
       </AnimatePresence>

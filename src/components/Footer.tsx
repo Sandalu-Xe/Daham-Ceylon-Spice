@@ -47,7 +47,7 @@ const Footer = memo(() => (
             <div className="h-12 w-auto flex items-center justify-center">
               <img 
               
-                src="https://yqdppggiipjbpowzrhok.supabase.co/storage/v1/object/public/Logo/WhatsApp_Image_2569-03-05_at_19.14.25-removebg-preview.png" 
+                src="https://yqdppggiipjbpowzrhok.supabase.co/storage/v1/object/sign/Logo/WhatsApp_Image_2569-03-05_at_19.14.25-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNmE4YjRlNC1jMTY2LTQwMGEtYTI4Mi1mYWY0YjY3OGE1YTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMb2dvL1doYXRzQXBwX0ltYWdlXzI1NjktMDMtMDVfYXRfMTkuMTQuMjUtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NzM2MDQ0OTIsImV4cCI6MTgwNTE0MDQ5Mn0.HEpTKZPCs-DR82bkj6Mwm3A7PldZY_fAURzGVxC28Gw" 
                 alt="Daham Ceylon Spice " 
                 className="h-full w-auto object-contain"
                 referrerPolicy="no-referrer"
@@ -108,6 +108,7 @@ const Footer = memo(() => (
             <li><Link to="/" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">Home</Link></li>
             <li><Link to="/about" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">About Us</Link></li>
             <li><Link to="/collection" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">The Collection</Link></li>
+            <li><Link to="/gallery" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">Gallery</Link></li>
             <li><Link to="/certification" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">Certification</Link></li>
           </ul>
         </motion.div>

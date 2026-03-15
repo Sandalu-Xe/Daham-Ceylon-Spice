@@ -1,7 +1,7 @@
 import React, { useState, useEffect, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Sun, Moon, Leaf } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { cn } from '../utils/cn';
 
 interface NavbarProps {
@@ -24,6 +24,7 @@ const Navbar = memo(({ isDark, toggleTheme }: NavbarProps) => {
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'The Collection', href: '/collection' },
+    { name: 'Gallery', href: '/gallery' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -36,7 +37,7 @@ const Navbar = memo(({ isDark, toggleTheme }: NavbarProps) => {
         <Link to="/" className="flex items-center gap-3">
           <div className="h-12 w-auto flex items-center justify-center">
             <img 
-              src="https://yqdppggiipjbpowzrhok.supabase.co/storage/v1/object/public/Logo/WhatsApp_Image_2569-03-05_at_19.14.25-removebg-preview.png" 
+              src="https://yqdppggiipjbpowzrhok.supabase.co/storage/v1/object/sign/Logo/WhatsApp_Image_2569-03-05_at_19.14.25-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNmE4YjRlNC1jMTY2LTQwMGEtYTI4Mi1mYWY0YjY3OGE1YTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMb2dvL1doYXRzQXBwX0ltYWdlXzI1NjktMDMtMDVfYXRfMTkuMTQuMjUtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NzM2MDQ0OTIsImV4cCI6MTgwNTE0MDQ5Mn0.HEpTKZPCs-DR82bkj6Mwm3A7PldZY_fAURzGVxC28Gw" 
               alt="Daham Ceylon Spice Logo" 
               className="h-full w-auto object-contain"
               referrerPolicy="no-referrer"
