@@ -8,9 +8,7 @@ import PageWrapper from './PageWrapper';
 const Home = lazy(() => import('../pages/Home'));
 const About = lazy(() => import('../pages/About'));
 const Collection = lazy(() => import('../pages/Collection'));
-const Certification = lazy(() => import('../pages/Certification'));
 const Contact = lazy(() => import('../pages/Contact'));
-const Gallery = lazy(() => import('../pages/Gallery'));
 
 const PageLoader = () => (
   <div className="h-screen w-full flex items-center justify-center bg-brand-dark">
@@ -28,9 +26,7 @@ const AnimatedRoutes = () => {
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/collection" element={<PageWrapper><Collection /></PageWrapper>} />
-          <Route path="/certification" element={<PageWrapper><Certification /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-          <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
     </Suspense>

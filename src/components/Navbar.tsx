@@ -24,8 +24,6 @@ const Navbar = memo(({ isDark, toggleTheme }: NavbarProps) => {
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'The Collection', href: '/collection' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Certification', href: '/certification' },
     { name: 'Contact', href: '/contact' },
   ];
 

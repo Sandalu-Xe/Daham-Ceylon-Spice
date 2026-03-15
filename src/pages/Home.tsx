@@ -249,13 +249,13 @@ const FeaturedProducts = memo(() => {
     {
       title: "Chilli Pieces",
       tag: "Premium Grade",
-      image: "https://images.unsplash.com/photo-1599148400620-8e1ff0bf28d8?",
+      image: "https://images.unsplash.com/photo-1584949091598-c31daaaa4aa9?",
       description: "Coarsely crushed sun-dried chillies from Matale. Balanced heat with exceptional texture for culinary exports."
     },
     {
       title: "Curry Powder",
       tag: "Heritage Blend",
-      image: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?",
+      image: "https://images.unsplash.com/photo-1606913084603-3e7702b01627?",
       description: "A complex heritage blend of 12 hand-selected spices, slow-roasted to a deep aromatic profile."
     },
     {
