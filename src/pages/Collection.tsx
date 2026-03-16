@@ -1,16 +1,7 @@
 import React, { memo } from 'react';
 import { motion } from 'motion/react';
 import ProductCard from '../components/ProductCard';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+import Carousel from '../components/Carousel';
 
 const Collection = memo(() => {
   const products = [
@@ -57,23 +48,7 @@ const Collection = memo(() => {
           </div>
         </motion.div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {products.map((p, i) => (
-            <ProductCard 
-              key={i} 
-              title={p.title}
-              image={p.image}
-              tag={p.tag}
-              description={p.description}
-            />
-          ))}
-        </motion.div>
+        <Carousel items={products} />
       </div>
     </main>
   );

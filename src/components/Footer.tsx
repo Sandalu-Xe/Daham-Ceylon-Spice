@@ -33,7 +33,7 @@ const itemVariants = {
 };
 
 const Footer = memo(() => (
-  <footer className="bg-brand-cream dark:bg-brand-dark text-brand-dark dark:text-white pt-24 pb-12 px-6 border-t border-brand-dark/5 dark:border-white/5 overflow-hidden">
+  <footer className="bg-brand-dark text-white pt-24 pb-12 px-6 border-t border-white/5 overflow-hidden">
     <div className="max-w-7xl mx-auto">
       <motion.div 
         variants={containerVariants}
@@ -57,7 +57,7 @@ const Footer = memo(() => (
               Daham Ceylon <span className="text-white">Spice</span>
             </span>
           </div>
-          <p className="text-muted dark:text-white/50 max-w-md mb-8 leading-relaxed">
+          <p className="text-white/50 max-w-md mb-8 leading-relaxed">
             Redefining the spice trade through ethical sourcing and uncompromising luxury. Your premium partner for Ceylon's finest exports.
           </p>
           <div className="flex gap-4">
@@ -73,7 +73,7 @@ const Footer = memo(() => (
                 href={href}
                 target={href !== "#" ? "_blank" : undefined}
                 rel={href !== "#" ? "noopener noreferrer" : undefined}
-                className="w-10 h-10 rounded-full border border-brand-dark/10 dark:border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all text-white"
               >
                 <Icon size={18} />
               </motion.a>
@@ -83,7 +83,7 @@ const Footer = memo(() => (
 
         <motion.div variants={itemVariants}>
           <h4 className="text-sm font-bold uppercase tracking-widest mb-8 text-brand-gold">Contact</h4>
-          <ul className="space-y-4 text-sm text-muted dark:text-white/60">
+          <ul className="space-y-4 text-sm text-white/60">
             <li>
               <a href="mailto:dahamceylonspice@gmail.com" className="flex items-center gap-3 hover:text-brand-gold transition-colors cursor-pointer">
                 <Mail size={16} className="shrink-0" /> <span className="break-all">dahamceylonspice@gmail.com</span>
@@ -104,7 +104,7 @@ const Footer = memo(() => (
 
         <motion.div variants={itemVariants}>
           <h4 className="text-sm font-bold uppercase tracking-widest mb-8 text-brand-gold">Quick Links</h4>
-          <ul className="space-y-4 text-sm text-muted dark:text-white/60">
+          <ul className="space-y-4 text-sm text-white/60">
             <li><Link to="/" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">Home</Link></li>
             <li><Link to="/about" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">About Us</Link></li>
             <li><Link to="/collection" className="hover:text-brand-gold transition-colors block transform hover:translate-x-1 duration-200">The Collection</Link></li>
@@ -119,13 +119,11 @@ const Footer = memo(() => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="pt-12 border-t border-brand-dark/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-muted dark:text-white/30"
+        className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs md:text-sm font-medium uppercase tracking-[0.2em] text-white/50"
       >
         <p>© 2026 Daham Ceylon Spice (PVT) LTD. All Rights Reserved.</p>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-brand-gold transition-colors">Terms of Trade</a>
-          <a href="#" className="hover:text-brand-gold transition-colors">Sitemap</a>
+          <p>Design &amp; Development by Axiperia</p>
         </div>
       </motion.div>
     </div>

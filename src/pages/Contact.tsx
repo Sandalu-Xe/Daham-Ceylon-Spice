@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = memo(() => (
-  <main className="py-32 px-6 bg-brand-cream text-brand-dark min-h-screen flex items-center relative overflow-hidden">
+  <main className="py-32 px-6 bg-brand-cream dark:bg-brand-dark text-brand-dark dark:text-white min-h-screen flex items-center relative overflow-hidden">
     <div className="absolute inset-0 opacity-10">
       <img 
         src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&q=80&w=1920" 
@@ -24,7 +24,7 @@ const Contact = memo(() => (
           <h2 className="text-4xl md:text-7xl font-serif mb-8 leading-tight">
             Partner with the Soul of Ceylon
           </h2>
-          <p className="text-muted text-lg mb-10 max-w-lg">
+          <p className="text-muted dark:text-white/70 text-lg mb-10 max-w-lg">
             For global B2B partnerships and bulk export inquiries, please provide your details and our export relations team will reach out within 24 hours.
           </p>
           <div className="flex flex-col gap-6">
@@ -70,7 +70,7 @@ const Contact = memo(() => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="bg-brand-dark/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 rounded-xl shadow-2xl"
+          className="bg-brand-dark/5 dark:bg-white/5 backdrop-blur-xl p-8 md:p-12 border border-brand-dark/10 dark:border-white/10 rounded-xl shadow-2xl"
         >
           <h3 className="text-2xl font-serif mb-8">Inquiries</h3>
           <form 
@@ -87,7 +87,7 @@ const Contact = memo(() => (
               <input 
                 type="email" 
                 placeholder="Your Email Address" 
-                className="w-full bg-transparent border-b border-brand-dark/20 py-3 text-brand-dark focus:border-brand-gold outline-none transition-colors"
+                className="w-full bg-transparent border-b border-brand-dark/20 dark:border-white/20 py-3 text-brand-dark dark:text-white focus:border-brand-gold dark:focus:border-brand-gold outline-none transition-colors placeholder:text-brand-dark/50 dark:placeholder:text-white/50"
                 required
               />
             </div>
@@ -95,7 +95,7 @@ const Contact = memo(() => (
               <textarea 
                 placeholder="Tell us about your requirements" 
                 rows={4}
-                className="w-full bg-transparent border-b border-brand-dark/20 py-3 text-brand-dark focus:border-brand-gold outline-none transition-colors"
+                className="w-full bg-transparent border-b border-brand-dark/20 dark:border-white/20 py-3 text-brand-dark dark:text-white focus:border-brand-gold dark:focus:border-brand-gold outline-none transition-colors placeholder:text-brand-dark/50 dark:placeholder:text-white/50"
                 required
               />
             </div>

@@ -302,7 +302,7 @@ const FeaturedProducts = memo(() => {
               A glimpse into our premium spice range, crafted for global culinary excellence.
             </p>
           </div>
-          <Link to="/collection" className="inline-flex items-center gap-2 text-brand-gold font-bold uppercase tracking-widest hover:text-brand-mustard transition-colors">
+          <Link to="/collection" className="inline-flex items-center gap-2 text-brand-dark dark:text-white font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">
             View All Products <ArrowRight size={18} />
           </Link>
         </motion.div>
