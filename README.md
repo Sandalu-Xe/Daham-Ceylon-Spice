@@ -44,7 +44,7 @@ Daham Ceylon Spice is a high-performance, aesthetically pleasing web application
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/daham-ceylon-spice.git
+   git clone https://github.com/Sandalu-Xe/daham-ceylon-spice.git
    cd daham-ceylon-spice
    ```
 
