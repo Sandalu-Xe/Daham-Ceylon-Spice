@@ -96,6 +96,8 @@ This project is pre-configured for Vercel.
 
 *Daham Ceylon Spice is more than just a business; it's a bridge between the lush plantations of Sri Lanka and the global market. Every line of code in this project is crafted to reflect the quality and purity of the spices it represents.*
 
+<img width="1680" height="884" alt="image" src="https://github.com/user-attachments/assets/85b42f80-60bd-4de8-a9f8-51693fcc0197" />
+
 ---
 
 Developed with ❤️ for **Daham Ceylon Spice**.
